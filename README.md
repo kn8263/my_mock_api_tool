@@ -1,7 +1,43 @@
-# Tauri + React + Typescript
+## 📌 主な機能
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+#### 1. エンドポイントの作成・管理
+ユーザーが エンドポイント（例: /users, /products/:id）をGUIで自由に作成できる。
+GET, POST, PUT, DELETE などの HTTPメソッド を指定可能。
+リクエストパラメータ（クエリパラメータ・ヘッダー・ボディ）を設定可能。
+#### 2. レスポンスの設定
+エンドポイントごとに レスポンスデータ を設定可能（JSON, XML, プレーンテキスト）。
+ステータスコード（200, 400, 500 など）を指定可能。
+動的レスポンス（リクエストに応じてデータを変える）も設定可能。
+#### 3. 正規表現を用いたリクエスト処理
+リクエストパラメータを正規表現で検証 し、異なるレスポンスを返す機能。
+例: /users/\d+ のように、ID（数字）が含まれるリクエストを処理可能。
+#### 4. SQLiteを利用したデータ管理
+アプリ内でSQLiteを使用し、ユーザーが管理する 仮のデータベース を提供。
+クライアント（フロントエンドアプリ）からのリクエストを受け、DBからデータを取得・レスポンスにセットできる。
+テーブル・カラムの管理をGUIで簡単に操作可能。
+#### 5. JavaScriptを使ったカスタムレスポンス
+ユーザーが JavaScriptを記述して、リクエストに応じたカスタム処理を実装可能。
+例: /random-number にアクセスすると ランダムな値 を返すスクリプトを記述できる。
+#### 6. リクエスト履歴の記録
+クライアント（フロントエンドアプリ）からのリクエストを記録し、過去のリクエストを簡単に再送可能。
+各リクエストの リクエストボディ、レスポンス、ヘッダー情報 を保存し、あとで確認できる。
+#### 7. APIのエクスポート・インポート
+作成したMock APIの設定を JSONファイルにエクスポート し、別の環境で インポート して再利用できる。
 
-## Recommended IDE Setup
+## 💻 開発技術
+| 分類 |技術|
+|---|---|
+|フロントエンド |React, Vite, TypeScript, Tailwind CSS|
+|バックエンド| Rust（Tauri）, Axum|
+|データベース| SQLite（rusqlite）|
+|パッケージ管理|pnpm|
+|OS対応|Windows, Mac|
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+
+## 🎯 最終目標
+このアプリは 開発者が簡単にAPIをシミュレート できるツールとして、
+<br>✅ GUIで直感的に操作
+<br>✅ SQLiteを活用した動的データの管理
+<br>✅ カスタムスクリプトで柔軟なレスポンス制御
+<br>を実現します。
+
